@@ -108,7 +108,7 @@ class MITMAdminServer implements Runnable
 	// sendString("How are you Admin Client !!");
     String c = cmd.toLowerCase();
     if (c.equals("stats")) {
-        sendString("Total number of requests proxied: " + m_engine.getNumProxiedRequests() + "\n");
+        sendString("Total number of requests proxied: " + m_engine.getTotalProxyRequests() + "\n");
     } else if (c.equals("shutdown")) {
         sendString("Shutting down proxy server\n");
         System.exit(0);

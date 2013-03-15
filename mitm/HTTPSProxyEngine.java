@@ -93,8 +93,8 @@ public class HTTPSProxyEngine extends ProxyEngine
 
     }
 
-    public int getNumProxiedRequests() {
-        return m_proxySSLEngine.numProxiedRequests;
+    public int getTotalProxyRequests() {
+        return m_proxySSLEngine.totalProxyRequests;
     }
 
     public void run()
@@ -250,7 +250,7 @@ public class HTTPSProxyEngine extends ProxyEngine
     private class ProxySSLEngine extends ProxyEngine {
 	Socket remoteSocket = null;
 	int timeout = 0;
-    int numProxiedRequests = 0;
+    int totalProxyRequests = 0;
 	/*
 	 * NOTE: that port number 0, used below indicates a system-allocated,
 	 * dynamic port number.
@@ -289,7 +289,7 @@ public class HTTPSProxyEngine extends ProxyEngine
 	{
 		try {
 		    final Socket localSocket = this.getServerSocket().accept();
-            this.numProxiedRequests++;
+            this.totalProxyRequests++;
 
 		     System.err.println("New proxy connection to " +
 		       m_tempRemoteHost + ":" + m_tempRemotePort);
